@@ -25,12 +25,7 @@ const config: HardhatUserConfig = {
       chainId: 421613
     },
   },
-  etherscan: {
-    apiKey: "DCT38TDMESYHYJWZ8R8XXEVYK8U3KS1DNB"
-    // goerli: "6ISVKVS2PX8RVBNYGGI33TB6DFCV4NEAEP",
-    // polygonscan: "KJ26YEV334IBJTEW49VXSH3FNNVV3361AX",
-    // arbitrumGoerli: "DCT38TDMESYHYJWZ8R8XXEVYK8U3KS1DNB",
-  },
+
 };
 
 export default config;
