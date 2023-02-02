@@ -2,7 +2,7 @@ import hre, { ethers } from "hardhat";
 import { ChainIDs, LzChainIDs } from "../constants";
 
 async function main() {
-    const goerliAddress = "0xE466a1D717BD43646E4b9B51909f77fFa17E2A28"
+    const goerliAddress = "0x510d2b5BcEf4EE178Aa3015d47750Ec33D56A1CF"
     const goerliArbitrumAddress = "0x702AC9C50Abd09368A1b4A58857502Cd3040ce31"
 
     const remoteChainID = 10143; // Adjust chainID Remote
