@@ -1,20 +1,21 @@
 import hre, { ethers } from "hardhat";
-import { LzChainIDs } from "../constants";
+import { ChainIDs, LzChainIDs } from "../constants";
 
 async function main() {
-    const goerliAddress = "0xE466a1D717BD43646E4b9B51909f77fFa17E2A28"
-    const remoteChainID = LzChainIDs[421613];
+    const onftAddress = "0x0E9BDcC71b8498a9F39e0307D6651d9502FcD3c1"
+    const remoteChainID = LzChainIDs[ChainIDs.ARBITRUM];
     const [owner] = await ethers.getSigners();
-    let adapterParams = ethers.utils.solidityPack(["uint16", "uint256"], [1, 500000])
+    let adapterParams = ethers.utils.solidityPack(["uint16", "uint256"], [1, 650000])
     const ONFT721 = await ethers.getContractFactory("TestONFT");
-    const onft721 = ONFT721.attach(goerliAddress);
-    const fees = await onft721.estimateSendFee(remoteChainID, owner.address, 1, false, adapterParams)
-    const est = await onft721.sendFrom(owner.address, remoteChainID, owner.address, 1, owner.address, ethers.constants.AddressZero, adapterParams,
+    const onft721 = ONFT721.attach(onftAddress);
+    const fees = await onft721.estimateSendFee(remoteChainID, owner.address, 0, false, adapterParams)
+    const est = await onft721.sendFrom(owner.address, remoteChainID, owner.address, 0, owner.address, ethers.constants.AddressZero, adapterParams,
         { value: fees[0], }
     )
     console.log(est);
 }
-
+// setDstChainIdToTransferGas
+// setMinDstGas
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
 main().catch((error) => {

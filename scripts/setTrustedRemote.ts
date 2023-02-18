@@ -2,18 +2,18 @@ import hre, { ethers } from "hardhat";
 import { ChainIDs, LzChainIDs } from "../constants";
 
 async function main() {
-    const goerliAddress = "0x510d2b5BcEf4EE178Aa3015d47750Ec33D56A1CF"
-    const goerliArbitrumAddress = "0x702AC9C50Abd09368A1b4A58857502Cd3040ce31"
+    const goerliAddress = "0x739e84cb6aAc21fc2c6fDBAe56Ca731BF3Fcbc77"
+    const goerliArbitrumAddress = "0x8071ECF43C718f6129E1621D30FAD13FA2Af3943"
 
-    const remoteChainID = 10143; // Adjust chainID Remote
+    const remoteChainID = 10121; // Adjust chainID Remote
 
     let remoteAndLocal = ethers.utils.solidityPack(
         ['address', 'address'],
-        [goerliArbitrumAddress, goerliAddress] // Adjust remote and local
+        [goerliAddress, goerliArbitrumAddress] // Adjust remote and local
     )
 
     const ONFT721 = await ethers.getContractFactory("TestONFT");
-    const onft721 = ONFT721.attach(goerliAddress); // Adjust Address
+    const onft721 = ONFT721.attach(goerliArbitrumAddress); // Adjust Address
     await (await onft721.setTrustedRemote(remoteChainID, remoteAndLocal)).wait()
 }
 

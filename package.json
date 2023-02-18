@@ -16,8 +16,10 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.8.1",
     "@openzeppelin/contracts-upgradeable": "^4.8.1",
+    "@types/shelljs": "^0.8.11",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "dotenv": "^16.0.3",
-    "hardhat-deploy": "^0.11.22"
+    "hardhat-deploy": "^0.11.22",
+    "shelljs": "^0.8.5"
   }
 }
