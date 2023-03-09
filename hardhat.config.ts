@@ -14,26 +14,30 @@ const config: HardhatUserConfig = {
     }
   },
   networks: {
-    mainnet: {
-      url: `${process.env.MAINNET_URL}`,
-      accounts: [`${process.env.PRIVATE_KEY_NIBBL_DEV}`],
-      chainId: 1
-    },
-    arbitrum: {
-      url: `${process.env.ARBITRUM_URL}`,
-      accounts: [`${process.env.PRIVATE_KEY_NIBBL_DEV}`],
-      chainId: 42161
-    },
+    // mainnet: {
+    //   url: `${process.env.MAINNET_URL}`,
+    //   accounts: [`${process.env.PRIVATE_KEY_NIBBL_DEV}`],
+    //   chainId: 1
+    // },
+    // arbitrum: {
+    //   url: `${process.env.ARBITRUM_URL}`,
+    //   accounts: [`${process.env.PRIVATE_KEY_NIBBL_DEV}`],
+    //   chainId: 42161
+    // },
     goerli: {
       url: `${process.env.GOERLI_URL}`,
-      accounts: [`${process.env.PRIVATE_KEY}`],
+      accounts: [`${process.env.PRIVATE_KEY_NIBBL_DEV}`],
       chainId: 5
     },
     arbitrumGoerli: {
       url: `${process.env.ARBITRUM_GOERLI_URL}`,
-      accounts: [`${process.env.PRIVATE_KEY}`],
+      accounts: [`${process.env.PRIVATE_KEY_NIBBL_DEV}`],
       chainId: 421613
     },
+    // matic: {
+    //   url: `${process.env.MATIC_URL}`,
+    //   accounts: [`${process.env.PRIVATE_KEY_NIBBL_DEV}`],
+    // },
   },
 
   etherscan: {
@@ -41,6 +45,7 @@ const config: HardhatUserConfig = {
       mainnet: `${process.env.ETHERSCAN_API_KEY}`,
       goerli: `${process.env.ETHERSCAN_API_KEY}`,
       polygonMumbai: `${process.env.POLYGONSCAN_API_KEY}`,
+      polygon: `${process.env.POLYGONSCAN_API_KEY}`,
       arbitrumGoerli: `${process.env.ARBISCAN_API_KEY}`,
       arbitrumOne: `${process.env.ARBISCAN_API_KEY}`,
     }

@@ -26,7 +26,11 @@ contract ERC721TestToken is ERC721 {
     }
 
     function _baseURI() internal pure override returns (string memory) {
-        return "https://agc.mypinata.cloud/ipfs/QmPyZxMjN2PfJGjGN45MFHbKEZyCD9F7MHeBeqBrKEFUtW/";
+        return "https://www.miladymaker.net/milady/json/";
     }
+
+    // function tokenURI(uint256) public pure override returns (string memory) {
+    //     return _baseURI();
+    // }
 
 }
