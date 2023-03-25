@@ -2,14 +2,16 @@ import hre, { ethers } from "hardhat";
 import { ChainIDs, LzChainIDs } from "../constants";
 
 async function main() {
-    const onftAddress = "0x0E9BDcC71b8498a9F39e0307D6651d9502FcD3c1"
-    const remoteChainID = LzChainIDs[ChainIDs.ARBITRUM];
+    const rootToken = "0xC1dA1b898c0247356E14ef327E9fc6C86a816697"; // ONFT: 0x3706AA66C756962Fbf7fEeBDE42dBB35C2c06D94
+
+    const onftAddress = "0x3706AA66C756962Fbf7fEeBDE42dBB35C2c06D94"
+    const remoteChainID = LzChainIDs[ChainIDs.ARBITRUM_GOERLI];
     const [owner] = await ethers.getSigners();
     let adapterParams = ethers.utils.solidityPack(["uint16", "uint256"], [1, 650000])
     const ONFT721 = await ethers.getContractFactory("TestONFT");
     const onft721 = ONFT721.attach(onftAddress);
-    const fees = await onft721.estimateSendFee(remoteChainID, owner.address, 0, false, adapterParams)
-    const est = await onft721.sendFrom(owner.address, remoteChainID, owner.address, 0, owner.address, ethers.constants.AddressZero, adapterParams,
+    const fees = await onft721.estimateSendFee(remoteChainID, owner.address, 2, false, adapterParams)
+    const est = await onft721.sendFrom(owner.address, remoteChainID, owner.address, 2, owner.address, ethers.constants.AddressZero, adapterParams,
         { value: fees[0], }
     )
     console.log(est);

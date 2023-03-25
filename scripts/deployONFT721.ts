@@ -8,7 +8,7 @@ async function main() {
     const NAME = "TestONFT"
     const SYMBOL = "ONFT"
     const minGasToTransfer = 250000
-    const remoteChainID: ChainIDs = ChainIDs.MAINNET
+    const remoteChainID: ChainIDs = ChainIDs.GOERLI
 
     const onft721 = await ONFT721.deploy(NAME, SYMBOL, minGasToTransfer, LzEndpoints[chainID]);
     await onft721.deployed();
